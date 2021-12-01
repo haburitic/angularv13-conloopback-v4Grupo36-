@@ -1,0 +1,30 @@
+<div class="col-md-12">
+  <div class="car card-container">
+    <form #f="ngForm" name="form" novalidate>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email" required minlength="3" maxlength="30"
+        />
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="assword">Password</label>
+        <input type="text" class="form-control" name="password" required minlength="3" maxlength="30"
+        />
+      </div>
+      <br>
+      <div class="form-group">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Role
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li *ngFor="let role of listaRoles">
+              <label>{{role.name}}</label>
+            </li>
+            </ul>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
