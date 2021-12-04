@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="col-md-12">
+  <div class="car card-container">
+    <form #f="ngForm" name="form" novalidate>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email"
+        required minlength="3" maxlength="30" [(ngModel)]="user.email" />
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="assword">Password</label>
+        <input type="text" class="form-control" name="password"
+        required minlength="3" maxlength="30"  [(ngModel)]="user.password" />
+      </div>
+      <br>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block" (click)="login()">Sign Up</button>
+      </div>
+    </form>
+    <div class="alert alert-success" role="alert" *ngIf="isSuccessFul">
+      This is a success alert—check it out!
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="isSignUpFailed">
+      This is a danger alert—check it out!
+    </div>
+
+  </div>
+</div>

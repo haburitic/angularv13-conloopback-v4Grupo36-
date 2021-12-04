@@ -3,28 +3,33 @@
     <form #f="ngForm" name="form" novalidate>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="text" class="form-control" name="email" required minlength="3" maxlength="30"
-        />
+        <input type="text" class="form-control" name="email"
+        required minlength="3" maxlength="30" [(ngModel)]="user.email" />
       </div>
       <br>
       <div class="form-group">
         <label for="assword">Password</label>
-        <input type="text" class="form-control" name="password" required minlength="3" maxlength="30"
-        />
+        <input type="text" class="form-control" name="password"
+        required minlength="3" maxlength="30"  [(ngModel)]="user.password" />
       </div>
       <br>
       <div class="form-group">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            Role
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li *ngFor="let role of listaRoles">
-              <label>{{role.name}}</label>
-            </li>
-            </ul>
-        </div>
+        <label>Rol</label>
+        <select id="rol" name="rol" class="form-control" [(ngModel)]="user.role">
+            <option *ngFor="let role of listaRoles">{{role.name}}</option>
+        </select>
+      </div>
+      <br>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block" (click)="createUser()">Sign Up</button>
       </div>
     </form>
+    <div class="alert alert-success" role="alert" *ngIf="isSuccessFul">
+      This is a success alert—check it out!
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="isSignUpFailed">
+      This is a danger alert—check it out!
+    </div>
+
   </div>
 </div>

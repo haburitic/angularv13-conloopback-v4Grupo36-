@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Role} from '../model/role';
+import {User} from '../model/user';
+import {UserService} from '../service/user.service';
+
 
 @Component({
   selector: 'app-register',
@@ -8,23 +11,44 @@ import {Role} from '../model/role';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  user = new User();
+  isSuccessFul=false;
+  isSignUpFailed=false;
+  errormessage='';
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
 
   }
 
-   listaRoles: Role[] = [
-    { id: 11, name: 'Dr Nice' },
-    { id: 12, name: 'Narco' },
-    { id: 13, name: 'Bombasto' },
-    { id: 14, name: 'Celeritas' },
-    { id: 15, name: 'Magneta' },
-    { id: 16, name: 'RubberMan' },
-    { id: 17, name: 'Dynama' },
-    { id: 18, name: 'Dr IQ' },
-    { id: 19, name: 'Magma' },
-    { id: 20, name: 'Tornado' }
+  listaRoles: Role[] = [
+    { id: 0, name: '----' },
+    { id: 1, name: 'Admin' },
+    { id: 2, name: 'User' },
+
   ];
+
+
+createUser(){
+  console.log(this.user.email);
+  console.log(this.user.password);
+  console.log(this.user.role);
+
+  this.userService.register(this.user).subscribe({
+    next: (data) => {
+      console.log('Observer got a next value: ' + data);
+      this.isSuccessFul=false;
+      this.isSignUpFailed=false;
+    },
+    error: (err: Error) => {
+      this.errormessage=err.message;
+      this.isSignUpFailed=true;
+      console.error('Observer got an error: ' + err.message);
+    },
+    complete: () => console.log('Observer got a complete notification'),
+  });
+
+}
 
 }

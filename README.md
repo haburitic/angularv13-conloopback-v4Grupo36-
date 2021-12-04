@@ -32,5 +32,13 @@ ng generate component register
 ng generate component home
 
 ## Crear clase
-ng generate interface Role
+ng generate interface model/Role
+ng generate class model/user
+
+## Crear servicios
+ng generate service service/user
+ng generate service service/tokenStorage
+
+## Crear servicios
+ng generate guard helper/guard
 
