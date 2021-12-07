@@ -12,9 +12,6 @@ export class Interceptor implements HttpInterceptor{
 
   constructor(private tokenStorageService:TokenStorageService){}
 
-  httpOptions={
-    headers: new HttpHeaders({'Content-Type':'application/json'})
-  };
 
   TOKEN_HEADER_KEY ='Autorization';
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -24,6 +21,12 @@ export class Interceptor implements HttpInterceptor{
       authReq=req.clone({
         headers:req.headers
         .append('Authorization','Bearer '+token)
+        .append('Content-Type','application/json'),
+        url: environment.url_backend+req.url
+      });
+    }else{
+      authReq=req.clone({
+        headers:req.headers
         .append('Content-Type','application/json'),
         url: environment.url_backend+req.url
       });

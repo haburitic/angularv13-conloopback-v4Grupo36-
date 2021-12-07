@@ -30,14 +30,17 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ng generate component login
 ng generate component register
 ng generate component home
+ng generate component empleado
 
 ## Crear clase
 ng generate interface model/Role
 ng generate class model/user
+ng generate class model/empleado
 
 ## Crear servicios
 ng generate service service/user
 ng generate service service/tokenStorage
+ng generate service service/empleado
 
 ## Crear servicios
 ng generate guard helper/guard

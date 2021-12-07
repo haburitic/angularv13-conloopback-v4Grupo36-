@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { Interceptor } from './helper/Interceptor';
+import { EmpleadoComponent } from './empleado/empleado.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { Interceptor } from './helper/Interceptor';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    EmpleadoComponent
   ],
   imports: [
     BrowserModule,

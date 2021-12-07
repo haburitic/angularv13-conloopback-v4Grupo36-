@@ -4,9 +4,12 @@ import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {GuardGuard} from './helper/guard.guard';
+import { EmpleadoComponent } from './empleado/empleado.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent, canActivate:[GuardGuard]},
+  {path:'empleado', component:EmpleadoComponent, canActivate:[GuardGuard]},
+
   {path:'login', component:LoginComponent },
   {path:'register', component: RegisterComponent},
   {path:'', redirectTo:'home', pathMatch:'full'}
